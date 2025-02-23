@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.controller.StaffController">
+   <tabs>
+      <Tab closable="false" text="Manage Staff">
+         <content>
+            <VBox spacing="10.0">
+               <children>
+                  <TableView fx:id="staffTable" onKeyReleased="#staffTableKeyReleased" onKeyTyped="#staffTableKeyTyped" onMouseClicked="#staffTableMouseClicked" onMouseEntered="#staffTableMouseEntered">
+                    <columns>
+                        <TableColumn fx:id="serialNoColumn" prefWidth="50.0" text="S/N" />
+                      <TableColumn fx:id="surnameColumn" prefWidth="120.0" text="Surname" />
+                      <TableColumn fx:id="firstNameColumn" prefWidth="150.0" text="Names" />
+                        <TableColumn fx:id="phoneNumberColumn" prefWidth="150.0" text="Phone Number" />
+                        <TableColumn fx:id="streetAddressColumn" minWidth="-Infinity" prefWidth="200.0" text="Street Address" />
+                        <TableColumn fx:id="staffRoleColumn" prefWidth="150.0" text="Staff Role" />
+                        <TableColumn fx:id="durationColumn" prefWidth="170.0" text="Duration at Company" />
+                    </columns>
+                  </TableView>
+                  <TitledPane animated="false" text="Edit Staff Details">
+                     <content>
+                        <VBox spacing="10.0" stylesheets="@styles/Styles.css">
+                           <children>
+                              <AnchorPane prefHeight="160.0" prefWidth="160.0">
+                                 <children>
+                                    <VBox layoutX="220.0" layoutY="148.6666717529297" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="220.0">
+                                       <children>
+                                          <Button fx:id="editStaffDetailsButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onEditStaffDetailsButton" text="Edit Staff Details" />
+                                          <Button fx:id="clearAllFieldButton" mnemonicParsing="false" onAction="#onClearAllFieldButton" text="Clear All Fields">
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@icons/clear-icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="SaveStaffInfoButton" mnemonicParsing="false" onAction="#onSaveStaffInfoButton" style="-fx-background-color: green;" text="Save Staff Information">
+                                             <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@icons/Save-white.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Text fx:id="saveStaffResponseText" strokeType="OUTSIDE" strokeWidth="0.0" text="Response Text" wrappingWidth="282.8033752441406" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="1.0" AnchorPane.bottomAnchor="0.0">
+                                       <children>
+                                          <VBox styleClass="container-border" stylesheets="@styles/Styles.css">
+                                             <children>
+                                                <ImageView fx:id="staffImageView" fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" styleClass="container-border">
+                                                   <image>
+                                                      <Image url="@icons/Account-Skin-Type.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </VBox>
+                                          <Button fx:id="takePhotoButton" mnemonicParsing="false" onAction="#onTakePhotoButton" prefHeight="25.0" prefWidth="180.0" text="Take Photo">
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="CAMERA" glyphStyle="CAMERA" size="20" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="490.0" layoutY="109.0">
+                                       <children>
+                                          <Label style="-fx-font-weight: 700;" text="Staff Role And Payment">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <GridPane hgap="10.0" vgap="10.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Change Staff Role:">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="salaryChioceBox" prefWidth="150.0" GridPane.columnIndex="1" />
+                                                <Label text="Salary:" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="salaryTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <HBox spacing="40.0">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label text="Staff Personal Information" underline="true">
+                                             <font>
+                                                <Font name="Garamond Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <GridPane hgap="10.0" styleClass="container-border" vgap="5.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Surname:">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="staffSurnameField" prefWidth="220.0" promptText="Enter staff surname here" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label text="First Name:" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="staffFirstNameField" prefWidth="220.0" promptText="Enter Staff First Name Here" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label text="Othername:" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="staffOthernameField" prefWidth="220.0" promptText="Enter Staff Othername Here" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label text="Gender:" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" spacing="20.0" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <RadioButton fx:id="staffMaleRadio" mnemonicParsing="false" onAction="#onStaffMaleRadio" text="Male">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="staffGenderGroup" />
+                                                         </toggleGroup>
+                                                      </RadioButton>
+                                                      <RadioButton fx:id="staffFemaleRadio" mnemonicParsing="false" onAction="#onStaffFemaleRadio" text="Female" toggleGroup="$staffGenderGroup">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </RadioButton>
+                                                   </children>
+                                                </HBox>
+                                                <Label text="Date of Birth:" GridPane.rowIndex="4">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker fx:id="staffDOBPicker" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </DatePicker>
+                                                <Label text="NIN:" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <children>
+                                                      <HBox styleClass="password-hbox-border">
+                                                         <children>
+                                                            <TextField fx:id="staffNINField" prefWidth="120.0" promptText="Enter NIN">
+                                                               <font>
+                                                                  <Font name="Garamond" size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                            <StackPane>
+                                                               <children>
+                                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@icons/clear-icon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" visible="false">
+                                                                     <image>
+                                                                        <Image url="@icons/validate.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </StackPane>
+                                                         </children>
+                                                      </HBox>
+                                                      <Button fx:id="validateStaffNINButton" mnemonicParsing="false" onAction="#onValidateStaffNINButton" text="Validate">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label text="Staff Contact Details" underline="true">
+                                             <font>
+                                                <Font name="Garamond Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border">
+                                             <children>
+                                                <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                                   <children>
+                                                      <Label prefWidth="100.0" text="Phone number:">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="staffPhoneNumberField" prefWidth="220.0" promptText="Enter Staff Phone Number">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                                   <children>
+                                                      <Label prefWidth="100.0" text="Second Phone:">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="staffSecondNumberField" prefWidth="220.0" promptText="Enter staff Alternative Phone Number">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                                   <children>
+                                                      <Label prefWidth="100.0" text="Street Address:">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextArea fx:id="staffStreetAddressArea" prefHeight="50.0" prefWidth="220.0" wrapText="true" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                                   <children>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label text="City">
+                                                               <font>
+                                                                  <Font name="Garamond" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="staffCityField" prefWidth="120.0" promptText="Enter City Here">
+                                                               <font>
+                                                                  <Font name="Garamond" size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label text="State">
+                                                               <font>
+                                                                  <Font name="Garamond" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ComboBox fx:id="staffStateCombo" prefWidth="120.0" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="70.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label text="First Staff Guarantor Information" underline="true">
+                                             <font>
+                                                <Font name="Garamond Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <GridPane alignment="CENTER" hgap="10.0" styleClass="container-border" vgap="5.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="30.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Surname:">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1SurnameField" prefWidth="220.0" promptText="Enter Staff Guarantor surname here" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="First Name:" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1FirstNameField" prefWidth="220.0" promptText="Enter Guarantor First Name here" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Othername:" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1OthernameField" prefWidth="220.0" promptText="Enter staff othername here" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Occupation:" GridPane.rowIndex="4">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1OccupationField" prefWidth="220.0" promptText="Enter Guarantor's Occupation" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Gender:" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <children>
+                                                      <RadioButton fx:id="guarantor1MaleRadio" mnemonicParsing="false" onAction="#onGuarantor1MaleRadio" text="Male">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="guarantor1genderGroup" />
+                                                         </toggleGroup>
+                                                      </RadioButton>
+                                                      <RadioButton fx:id="guarantor1FemaleRadio" mnemonicParsing="false" onAction="#onGuarantor1FemaleRadio" text="Female" toggleGroup="$guarantor1genderGroup">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </RadioButton>
+                                                   </children>
+                                                </HBox>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Date of Birth:" GridPane.rowIndex="7">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker fx:id="guarantor1DOBPicker" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </DatePicker>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="NIN:" GridPane.rowIndex="8">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                   <children>
+                                                      <HBox styleClass="password-hbox-border">
+                                                         <children>
+                                                            <TextField fx:id="guarantor1NINField" prefWidth="120.0" promptText="Enter NIN">
+                                                               <font>
+                                                                  <Font name="Garamond" size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                            <StackPane>
+                                                               <children>
+                                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@icons/clear-icon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" visible="false">
+                                                                     <image>
+                                                                        <Image url="@icons/validate.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </StackPane>
+                                                         </children>
+                                                      </HBox>
+                                                      <Button fx:id="validateGuarantor1NINButton" mnemonicParsing="false" onAction="#onValidateGuarantor2NINButton" text="Validate">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Home Address:" GridPane.rowIndex="9">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextArea fx:id="guarantor1HomeTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="16.0" prefWidth="100.0" text="Relationship:" GridPane.rowIndex="6">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1RelationshipField" layoutX="120.0" layoutY="12.0" prefWidth="220.0" promptText="Guarantor's Relationship with staff" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="16.0" text="Phone Number:" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="guarantor1phoneField" layoutX="120.0" layoutY="12.0" prefWidth="220.0" promptText="Enter Staff Guarantor's Phone Number" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0" spacing="5.0">
+                                       <children>
+                                          <Label text="Second Staff Guarantor Information" underline="true">
+                                             <font>
+                                                <Font name="Garamond Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <VBox styleClass="container-border">
+                                             <children>
+                                                <GridPane alignment="CENTER" hgap="10.0" vgap="5.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="30.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Surname:">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2SurnameField" prefWidth="220.0" promptText="Enter Staff Guarantor surname here" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="First Name:" GridPane.rowIndex="1">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2FirstNameField" prefWidth="220.0" promptText="Enter Guarantor First Name here" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Othername:" GridPane.rowIndex="2">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2OthernameField" prefWidth="220.0" promptText="Enter staff othername here" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Occupation:" GridPane.rowIndex="4">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2OccupationField" prefWidth="220.0" promptText="Enter Guarantor's Occupation" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Gender:" GridPane.rowIndex="5">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                         <children>
+                                                            <RadioButton fx:id="guarantor2MaleRadio" mnemonicParsing="false" onAction="#onGuarantor2MaleRadio" text="Male">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                               <toggleGroup>
+                                                                  <ToggleGroup fx:id="guarantor2genderGroup" />
+                                                               </toggleGroup>
+                                                            </RadioButton>
+                                                            <RadioButton fx:id="guarantor2FemaleRadio" mnemonicParsing="false" onAction="#onGuarantor2FemaleRadio" text="Female" toggleGroup="$guarantor2genderGroup">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </RadioButton>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Date of Birth:" GridPane.rowIndex="7">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <DatePicker fx:id="guarantor2DOBPicker" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </DatePicker>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="NIN:" GridPane.rowIndex="8">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                         <children>
+                                                            <HBox styleClass="password-hbox-border">
+                                                               <children>
+                                                                  <TextField fx:id="guarantor2NINField" prefWidth="120.0" promptText="Enter NIN">
+                                                                     <font>
+                                                                        <Font name="Garamond" size="14.0" />
+                                                                     </font>
+                                                                  </TextField>
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@icons/clear-icon.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" visible="false">
+                                                                           <image>
+                                                                              <Image url="@icons/validate.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </HBox>
+                                                            <Button fx:id="validateGuarantor2NINButton" mnemonicParsing="false" onAction="#onValidateGuarantor2NINButton" text="Validate">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Button>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="10.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Home Address:" GridPane.rowIndex="9">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextArea fx:id="guarantor2HomeTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                      <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="16.0" prefWidth="100.0" text="Relationship:" GridPane.rowIndex="6">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2RelationshipField" layoutX="120.0" layoutY="12.0" prefWidth="220.0" promptText="Guarantor's Relationship with staff" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="16.0" text="Phone Number:" GridPane.rowIndex="3">
+                                                         <font>
+                                                            <Font name="Garamond" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="guarantor2phoneField" layoutX="120.0" layoutY="12.0" prefWidth="220.0" promptText="Enter Staff Guarantor's Phone Number" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <font>
+                                                            <Font name="Garamond" size="14.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab fx:id="addNewStaffTab" closable="false" onSelectionChanged="#onAddNewStaffTab" text="Add New Staff">
+         <content>
+            <fx:include source="add-new-staff-view.fxml" />
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

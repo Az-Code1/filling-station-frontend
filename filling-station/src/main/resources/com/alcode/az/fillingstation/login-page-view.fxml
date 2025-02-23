@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="550.0" prefWidth="600.0" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.LoginPageController">
+   <children>
+      <VBox layoutX="139.0" layoutY="162.0" scaleZ="69.0" spacing="10.0" styleClass="raised-bevel" stylesheets="@styles/custom-login.css">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Username/Phone number">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-username-30%20(1).png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="usernameTextField" prefHeight="30.0" prefWidth="250.0" promptText="Username here" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Garamond" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <AnchorPane>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Password" />
+                        <Button fx:id="forgotPasswordButton" layoutX="154.0" layoutY="-2.0" mnemonicParsing="false" onAction="#onForgotPasswordButton" prefHeight="25.0" styleClass="borderless-button" stylesheets="@styles/Styles.css" text="Forgot Password?" underline="true" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </AnchorPane>
+                  <HBox prefWidth="120.0" spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-password-50.png" />
+                           </image>
+                        </ImageView>
+                        <StackPane style="-fx-background-color: #F5F5F5;">
+                           <children>
+                              <HBox fx:id="concealPasswordHBox" style="-fx-background-color: #F0F0F0;" styleClass="password-hbox-border" visible="false">
+                                 <children>
+                                    <TextField fx:id="passwordTextField" prefHeight="30.0" prefWidth="265.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </TextField>
+                                    <Button fx:id="concealPasswordButton" mnemonicParsing="false" onAction="#onConcealPasswordButton">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="revealPasswordHBox" maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-hbox-border">
+                                 <children>
+                                    <PasswordField fx:id="passwordPasswordField" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="revealPasswordButton" mnemonicParsing="false" onAction="#onRevealPasswordButton">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="EYE" size="25" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <CheckBox fx:id="rememberMeCheckbox" mnemonicParsing="false" selected="true" text="Remember Me">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </CheckBox>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginButton" prefHeight="25.0" prefWidth="291.0" text="Log in">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-login-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Don't have an account?" />
+                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#onSignUpButton" prefHeight="25.0" styleClass="borderless-button" stylesheets="@styles/Styles.css" text="Sign up" textFill="#0d10a6">
+                     <font>
+                        <Font name="Garamond" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Text fx:id="responseText" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="300.8034210205078">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="7.0" prefHeight="100.0" style="-fx-background-color: #003366;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#5dade2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="raised-etched" text="WELCOME TO BAYMAS FILLING STATION APATA" textAlignment="CENTER" wrappingWidth="300.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <Shadow height="9.32" radius="9.129999999999999" width="29.2">
+                     <color>
+                        <Color red="0.09270089119672775" green="0.02599090337753296" blue="0.5263158082962036" />
+                     </color>
+                  </Shadow>
+               </effect>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+   <styleClass>
+      <String fx:value="secondary-color" />
+      <String fx:value="primary-color" />
+   </styleClass>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.controller.AttendanceController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+    <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Staff Attendance System" />
+
+    <HBox spacing="10">
+        <Label text="Fingerprint ID:" />
+        <TextField fx:id="fingerprintField" promptText="Enter or scan fingerprint ID" />
+        <Button onAction="#fetchStaffDetails" text="Fetch Details" />
+    </HBox>
+
+    <TableView fx:id="staffTable">
+        <columns>
+            <TableColumn fx:id="staffIdColumn" maxWidth="500.0" minWidth="-Infinity" text="Staff ID" />
+            <TableColumn fx:id="nameColumn" maxWidth="500.0" minWidth="-Infinity" prefWidth="200.0" text="Name" />
+        </columns>
+    </TableView>
+
+    <Button onAction="#markAttendance" text="Mark Attendance" />
+
+    <!-- New Section for Punctuality Analysis -->
+    <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Punctuality Analysis" />
+    <HBox spacing="10">
+        <Label text="Select Staff:" />
+        <ComboBox fx:id="staffComboBox" promptText="Select Staff" />
+        <Label text="Start Date:" />
+        <DatePicker fx:id="startDatePicker" />
+        <Label text="End Date:" />
+        <DatePicker fx:id="endDatePicker" />
+        <Button onAction="#showPunctuality" text="Show Punctuality" />
+    </HBox>
+
+    <TableView fx:id="punctualityTable">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date" />
+            <TableColumn fx:id="timeInColumn" text="Time In" />
+            <TableColumn fx:id="timeOutColumn" text="Time Out" />
+            <TableColumn fx:id="statusColumn" text="Status" />
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,13 @@
+/* styles.css */
+#font-awesome-icon {
+    -fx-icon-color: #FF0000; /* Red color */
+    -fx-icon-size: 24px;     /* Icon size */
+}
+
+#font-awesome-icon:hover {
+    -fx-icon-color: #00FF00; /* Green color on hover */
+}
+#my-icon {
+    -fx-icon-color: #007BFF; /* Supported by FontAwesomeIconView */
+    -fx-icon-size: 32px;     /* Supported by FontAwesomeIconView */
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.testmodel.controller.CustomerController">
+    <TableView fx:id="customerTable">
+        <columns>
+            <TableColumn text="Customer Name" fx:id="customerNameColumn" />
+            <TableColumn text="Phone Number" fx:id="customerPhoneNumberColumn" />
+            <TableColumn text="Company Name" fx:id="companyNameColumn" />
+        </columns>
+    </TableView>
+
+    <HBox>
+        <Label text="Customer Name:" />
+        <TextField fx:id="customerNameField" />
+        <Label text="Phone Number:" />
+        <TextField fx:id="customerPhoneNumberField" />
+        <Label text="Company Name:" />
+        <TextField fx:id="companyNameField" />
+        <Button text="Add Customer" onAction="#addCustomer" />
+    </HBox>
+</VBox>

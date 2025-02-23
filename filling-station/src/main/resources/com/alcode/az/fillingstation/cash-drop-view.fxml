@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.controller.CashDropController">
+   <tabs>
+      <Tab text="Cash Drop">
+         <content>
+            <AnchorPane>
+                <children>
+                    <!-- Main Container -->
+                    <VBox spacing="10" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <!-- Header -->
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Cash Drop Management" />
+            
+                        <!-- Admin Options -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Select Cashier:" />
+                            <ComboBox fx:id="cashierComboBox" onAction="#onSelectCashier" prefWidth="200" promptText="Choose Cashier" />
+                            <Button onAction="#onCreateNewCashier" text="Create New Cashier" />
+                        </HBox>
+            
+                        <!-- Cash Drop Totals -->
+                        <HBox spacing="20">
+                            <Label fx:id="totalCashDropLabel" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Cash Drops: ₦0.00" />
+                            <Label fx:id="totalTransferDropLabel" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Transfers: ₦0.00" />
+                        <Label fx:id="totalTransferDropLabel1" layoutX="187.0" layoutY="10.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Cash: ₦0.00" />
+                        <Label fx:id="totalTransferDropLabel11" layoutX="351.0" layoutY="10.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Expenses: ₦0.00" />
+                        </HBox>
+            
+                        <!-- Cash Drop List -->
+                        <TableView fx:id="cashDropTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn prefWidth="150" text="Cash Drop Type">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="type" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="100" text="Amount">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="amount" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="200" text="Timestamp">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="timestamp" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+            
+                        <!-- Add Cash Drop Section -->
+                        <TitledPane expanded="false" text="Add Cash Drop">
+                            <VBox spacing="10.0">
+                                <HBox spacing="10">
+                                    <Label text="Cash Drop Type:" />
+                                    <ChoiceBox fx:id="dropTypeChoiceBox" prefWidth="150">
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                <String fx:value="Cash" />
+                                                <String fx:value="Transfer" />
+                                            </FXCollections>
+                                        </items>
+                                    </ChoiceBox>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Label text="Amount:" />
+                                    <TextField fx:id="amountTextField" promptText="Enter Amount" />
+                                </HBox>
+                                <Button onAction="#onAddCashDrop" text="Add Cash Drop" />
+                            </VBox>
+                        </TitledPane>
+            
+                        <!-- Cash Analysis Section -->
+                        <TitledPane expanded="true" text="Cash Analysis">
+                            <VBox spacing="10">
+                                <Label style="-fx-font-weight: bold;" text="Enter Denominations:" />
+                                <VBox spacing="5">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="₦1000:" />
+                                        <TextField fx:id="denomination1000" promptText="Count" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="₦500:" />
+                                        <TextField fx:id="denomination500" promptText="Count" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="₦200:" />
+                                        <TextField fx:id="denomination200" promptText="Count" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="₦100:" />
+                                        <TextField fx:id="denomination100" promptText="Count" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="₦50:" />
+                                        <TextField fx:id="denomination50" promptText="Count" />
+                                    </HBox>
+                              <HBox fx:id="denomination20" alignment="CENTER_LEFT" layoutX="10.0" layoutY="149.0" spacing="10">
+                                 <children>
+                                    <Label text="₦20:" />
+                                    <TextField fx:id="denomination501" promptText="Count" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="183.0" spacing="10">
+                                 <children>
+                                    <Label text="₦10:" />
+                                    <TextField fx:id="denomination10" promptText="Count" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="218.0" spacing="10">
+                                 <children>
+                                    <Label text="₦5:" />
+                                    <TextField fx:id="denomination5" promptText="Count" />
+                                 </children>
+                              </HBox>
+                                </VBox>
+                                <Button onAction="#onCalculateTotalCash" text="Calculate Total Cash" />
+                           <HBox spacing="20.0">
+                              <children>
+                                      <Label fx:id="totalCashLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total: ₦0.00" />
+                                 <Button fx:id="injectIntoCashDrop" mnemonicParsing="false" onAction="#onInjectIntoCashDrop" text="Inject into Cash Drop" />
+                              </children>
+                           </HBox>
+                            </VBox>
+                        </TitledPane>
+                    </VBox>
+                </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Staff Attendance">
+         <content>
+            <AnchorPane>
+               <children>
+                  <VBox spacing="10">
+                     <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                     </padding>
+                     <children>
+                        <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Staff Attendance System" />
+                        <HBox spacing="10">
+                           <children>
+                              <Label text="Fingerprint ID:" />
+                              <TextField fx:id="fingerprintField" promptText="Enter or scan fingerprint ID" />
+                              <Button onAction="#fetchStaffDetails" text="Fetch Details" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="staffTable">
+                           <columns>
+                              <TableColumn fx:id="staffIdColumn" text="Staff ID" />
+                              <TableColumn fx:id="nameColumn" text="Name" />
+                           </columns>
+                        </TableView>
+                        <Button onAction="#markAttendance" text="Mark Attendance" />
+                        <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Punctuality Analysis" />
+                        <HBox spacing="10">
+                           <children>
+                              <Label text="Select Staff:" />
+                              <ComboBox fx:id="staffComboBox" promptText="Select Staff" />
+                              <Label text="Start Date:" />
+                              <DatePicker fx:id="startDatePicker" />
+                              <Label text="End Date:" />
+                              <DatePicker fx:id="endDatePicker" />
+                              <Button onAction="#showPunctuality" text="Show Punctuality" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="punctualityTable">
+                           <columns>
+                              <TableColumn fx:id="dateColumn" text="Date" />
+                              <TableColumn fx:id="timeInColumn" text="Time In" />
+                              <TableColumn fx:id="timeOutColumn" text="Time Out" />
+                              <TableColumn fx:id="statusColumn" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

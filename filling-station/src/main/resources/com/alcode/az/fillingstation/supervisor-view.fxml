@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane minHeight="1200.0" minWidth="1100.0" stylesheets="@styles/Styles.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.controller.SupervisorController">
+    <tabs>
+        <Tab fx:id="cashDropTab" closable="false" text="Cash Drop">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <!-- Main Container -->
+                        <VBox fx:id="vboxcheck" spacing="10" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                            <!-- Header -->
+                            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Cash Drop Management" />
+
+                                  <!-- Admin Options -->
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Select Cashier:" />
+                                <ComboBox fx:id="cashierComboBox" onAction="#onSelectCashier" prefWidth="200" promptText="Choose Sales Rep" />
+                                <Button onAction="#onCreateNewCashier" text="Create New Sales Rep" />
+                            </HBox>
+
+                                  <!-- Cash Drop Totals -->
+                            <HBox spacing="20">
+                                <Label fx:id="totalCashDropLabel" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Cash Drops: ₦0.00" />
+                                <Label fx:id="totalTransferDropLabel" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Transfers: ₦0.00" />
+                                <Label fx:id="totalTransferDropLabel1" layoutX="187.0" layoutY="10.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Expenses: ₦0.00" />
+                                <Label fx:id="totalTransferDropLabel11" layoutX="351.0" layoutY="10.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Total Cash: ₦0.00" />
+                            </HBox>
+
+                                  <!-- Cash Drop List -->
+                            <TableView fx:id="cashDropTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn prefWidth="150" text="Cash Drop Type">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="type" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="100" text="Amount">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="amount" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="200" text="Timestamp">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="timestamp" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+
+                                  <!-- Add Cash Drop Section -->
+                            <TitledPane text="Add Cash Drop">
+                                <VBox spacing="10.0">
+                                    <HBox spacing="10">
+                                        <Label text="Cash Drop Type:" />
+                                        <ChoiceBox fx:id="dropTypeChoiceBox" prefWidth="150">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Cash" />
+                                                    <String fx:value="Transfer" />
+                                                </FXCollections>
+                                            </items>
+                                        </ChoiceBox>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Label text="Amount:" />
+                                        <TextField fx:id="amountTextField" promptText="Enter Amount" />
+                                    </HBox>
+                                    <Button onAction="#onAddCashDrop" text="Add Cash Drop" />
+                                </VBox>
+                            </TitledPane>
+
+                                  <!-- Cash Analysis Section -->
+                            <TitledPane expanded="true" text="Cash Analysis">
+                                <VBox spacing="10">
+                                    <Label style="-fx-font-weight: bold;" text="Enter Denominations:" />
+                                    <VBox spacing="5">
+                                        <HBox spacing="10">
+                                            <Label text="₦1000:" />
+                                            <TextField fx:id="denomination1000" promptText="Count" />
+                                        </HBox>
+                                        <HBox spacing="10">
+                                            <Label text="₦500:" />
+                                            <TextField fx:id="denomination500" promptText="Count" />
+                                        </HBox>
+                                        <HBox spacing="10">
+                                            <Label text="₦200:" />
+                                            <TextField fx:id="denomination200" promptText="Count" />
+                                        </HBox>
+                                        <HBox spacing="10">
+                                            <Label text="₦100:" />
+                                            <TextField fx:id="denomination100" promptText="Count" />
+                                        </HBox>
+                                        <HBox spacing="10">
+                                            <Label text="₦50:" />
+                                            <TextField fx:id="denomination50" promptText="Count" />
+                                        </HBox>
+                                        <HBox fx:id="denomination501" layoutX="10.0" layoutY="149.0" spacing="10">
+                                            <children>
+                                                <Label text="₦20:" />
+                                                <TextField fx:id="denomination20" promptText="Count" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="183.0" spacing="10">
+                                            <children>
+                                                <Label text="₦10:" />
+                                                <TextField fx:id="denomination10" promptText="Count" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="218.0" spacing="10">
+                                            <children>
+                                                <Label text="₦5:" />
+                                                <TextField fx:id="denomination5" promptText="Count" />
+                                            </children>
+                                        </HBox>
+                                    </VBox>
+                                    <Button onAction="#onCalculateTotalCash" text="Calculate Total Cash" />
+                                    <HBox spacing="20.0">
+                                        <children>
+                                            <Label fx:id="totalCashLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total: ₦0.00" />
+                                            <Button fx:id="injectIntoCashDrop" mnemonicParsing="false" onAction="#onInjectIntoCashDrop" text="Inject into Cash Drop" />
+                                        </children>
+                                    </HBox>
+                                </VBox>
+                            </TitledPane>
+                        </VBox>
+                    </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="staffAttendanceTab" closable="false" text="Staff Attendance">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10" />
+                            </padding>
+                            <children>
+                                <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Staff Attendance System" />
+                                <HBox spacing="10">
+                                    <children>
+                                        <Label text="Fingerprint ID:" />
+                                        <TextField fx:id="fingerprintField" promptText="Enter or scan fingerprint ID" />
+                                        <Button onAction="#fetchStaffDetails" text="Fetch Details" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="staffTable">
+                                    <columns>
+                                        <TableColumn fx:id="staffIdColumn" text="Staff ID" />
+                                        <TableColumn fx:id="nameColumn" minWidth="-Infinity" prefWidth="150.0" text="Name" />
+                              <TableColumn fx:id="nameColumn2" minWidth="-Infinity" prefWidth="120.0" text="Role" />
+                                    </columns>
+                                </TableView>
+                                <Button onAction="#markAttendance" text="Mark Attendance" />
+                                <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Punctuality Analysis" />
+                                <HBox spacing="10">
+                                    <children>
+                                        <Label text="Select Staff:" />
+                                        <ComboBox fx:id="staffComboBox" promptText="Select Staff" />
+                                        <Label text="Start Date:" />
+                                        <DatePicker fx:id="startDatePicker" />
+                                        <Label text="End Date:" />
+                                        <DatePicker fx:id="endDatePicker" />
+                                        <Button fx:id="showPunctualityButton" onAction="#onShowPunctuality" text="Show Punctuality" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="punctualityTable">
+                                    <columns>
+                                        <TableColumn fx:id="dateColumn" text="Date" />
+                                        <TableColumn fx:id="timeInColumn" text="Time In" />
+                                        <TableColumn fx:id="timeOutColumn" text="Time Out" />
+                                        <TableColumn fx:id="statusColumn" text="Status" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+      <Tab fx:id="staffAttendanceTab1" closable="false" onSelectionChanged="#onCustomerLoggTab" text="Customer's Logg">
+         <content>
+            <AnchorPane>
+               <children>
+                  <VBox layoutX="18.0" spacing="10">
+                     <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                     </padding>
+                     <children>
+                        <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Customer Patronage System" />
+                        <Line endX="1200.0" startX="-100.0" stroke="#3498db" strokeWidth="2.0" />
+                        <FlowPane styleClass="line-border">
+                           <children>
+                              <GridPane hgap="5.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Customer's Name" GridPane.columnIndex="1" />
+                                    <Label layoutX="10.0" layoutY="25.0" text="Company's Name" GridPane.columnIndex="2" />
+                                    <Label layoutX="10.0" layoutY="25.0" text="Customer's Phone Number" GridPane.columnIndex="3" />
+                                    <TextField fx:id="createCustomerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="createPhoneNumberField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <TextField fx:id="createCompanyNameField" layoutX="10.0" layoutY="21.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Button fx:id="createCustomerButton" mnemonicParsing="false" onAction="#onCreateCustomerButton" text="Create Customer" GridPane.rowIndex="1" />
+                                    <Label style="-fx-font-weight: bold;" text="Add New Customer" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="4.0" />
+                           </padding>
+                        </FlowPane>
+                        <Text fx:id="createCustomerResponseText" strokeType="OUTSIDE" strokeWidth="0.0" text="Respomse Text" />
+                        <Line endX="1200.0" startX="-100.0" stroke="#3498db" strokeWidth="2.0" />
+                        <FlowPane styleClass="line-border">
+                           <children>
+                              <GridPane hgap="5.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="120.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label layoutX="10.0" layoutY="25.0" text="Amount" GridPane.columnIndex="4" />
+                                    <Label layoutX="10.0" layoutY="25.0" text="Container Type" GridPane.columnIndex="5" />
+                                    <Label layoutX="10.0" layoutY="25.0" text="Company's Name" GridPane.columnIndex="1" />
+                                    <Label layoutX="10.0" layoutY="25.0" text="Container Identity" GridPane.columnIndex="6" />
+                                    <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <TextField fx:id="addNewOrderContainerIdentityField" layoutX="10.0" layoutY="21.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                    <TextField fx:id="addNewOrderAmountField" editable="false" layoutX="10.0" layoutY="21.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <TextField fx:id="addNewOrderContainerTypeField" layoutX="10.0" layoutY="21.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <Button fx:id="addNewOrderButton" mnemonicParsing="false" onAction="#onAddNewOrderButton" text="Add New Order" GridPane.rowIndex="1" />
+                                    <ChoiceBox fx:id="orderCompanyNameCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label style="-fx-font-weight: bold;" text="Customer's New Order" />
+                                    <Label text="Quantity" GridPane.columnIndex="2" />
+                                    <TextField fx:id="addNewOrderQuantityField" prefHeight="30.0" prefWidth="100.0" promptText="Enter Amount in Litres" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Price" GridPane.columnIndex="3" />
+                                    <TextField fx:id="addNewOrderPriceField" prefWidth="100.0" promptText="Enter Price" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="4.0" />
+                           </padding>
+                        </FlowPane>
+                        <Text fx:id="addNewOrderResponseText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Line endX="1200.0" layoutX="121.0" layoutY="128.0" startX="-100.0" stroke="#3498db" strokeWidth="2.0" />
+                        <TitledPane expanded="false" text="Customer Bookings">
+                           <content>
+                              <VBox>
+                                 <children>
+                                    <GridPane hgap="5.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="220.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label layoutX="10.0" layoutY="25.0" text="Amount" GridPane.columnIndex="4" />
+                                          <Label layoutX="10.0" layoutY="25.0" text="Company's Name" GridPane.columnIndex="1" />
+                                          <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <TextField fx:id="addNewBookingAmountField" editable="false" layoutX="10.0" layoutY="21.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                          <Button fx:id="addNewBookingButton" mnemonicParsing="false" onAction="#onAdNewBookingButton" text="Add New Booking" GridPane.rowIndex="1" />
+                                          <ChoiceBox fx:id="newBookingCompanyNameCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label style="-fx-font-weight: bold;" text="Create Customer's New Booking" />
+                                          <Label text="Quantity" GridPane.columnIndex="2" />
+                                          <TextField fx:id="addNewBookingQuantityField" prefHeight="30.0" prefWidth="100.0" promptText="Enter Amount in Litres" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label text="Price" GridPane.columnIndex="3" />
+                                          <TextField fx:id="addNewBookingPriceField" prefWidth="100.0" promptText="Enter Price" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <Text fx:id="addNewBookingResponseText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                    <TableView fx:id="customerListTable1">
+                                       <columns>
+                                          <TableColumn fx:id="customerListNameColumn1" minWidth="-Infinity" prefWidth="150.0" text="Date" />
+                                          <TableColumn fx:id="customerListCompanyColumn1" prefWidth="150.0" text="Company's Name" />
+                                          <TableColumn fx:id="customerListPhoneNumber1" prefWidth="200.0" text="Amount of Unit Booked" />
+                                          <TableColumn fx:id="customerListPhoneNumber11" prefWidth="200.0" text="Current Stock Balance" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" text="Response Text" />
+                        <Label style="-fx-font-weight: bold;" text="Today's Patronage List From Registerred Customer">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TableView fx:id="staffTable1">
+                           <columns>
+                              <TableColumn fx:id="nameColumn1" minWidth="-1.0" prefWidth="150.0" text="Company's Name" />
+                              <TableColumn fx:id="nameColumn12" minWidth="-1.0" prefWidth="150.0" text="Customer's Phone" />
+                              <TableColumn fx:id="nameColumn11" minWidth="-1.0" prefWidth="120.0" text="Product Type" />
+                              <TableColumn fx:id="nameColumn1112" minWidth="-1.0" text="Quantity" />
+                              <TableColumn fx:id="nameColumn111" minWidth="-1.0" text="Price" />
+                              <TableColumn fx:id="nameColumn11121" minWidth="-1.0" text="Amount" />
+                              <TableColumn fx:id="nameColumn1111" minWidth="-1.0" prefWidth="120.0" text="Container Type" />
+                              <TableColumn fx:id="nameColumn11111" minWidth="-1.0" prefWidth="150.0" text="Container Identity" />
+                              <TableColumn fx:id="nameColumn111111" minWidth="-1.0" prefWidth="180.0" text="Current Stock Balance" />
+                           </columns>
+                        </TableView>
+                        <TitledPane text="View List Of Added Customers">
+                           <content>
+                              <VBox>
+                                 <children>
+                                    <TableView fx:id="customerListTable">
+                                      <columns>
+                                        <TableColumn fx:id="customerListNameColumn" minWidth="-Infinity" prefWidth="150.0" text="Customer's Name" />
+                                        <TableColumn fx:id="customerListCompanyColumn" prefWidth="150.0" text="Company's Name" />
+                                          <TableColumn fx:id="customerListPhoneNumber" prefWidth="200.0" text="Customer's Phone Number" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                        <TitledPane expanded="false" text="Customer's Patronage Analysis">
+                           <content>
+                              <VBox>
+                                 <children>
+                                    <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Customer's Patronage Analysis" />
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                       <children>
+                                          <Label text="Select Customer:" />
+                                          <ComboBox fx:id="selectCustomerCombo" promptText="Select Customer" />
+                                          <Label text="Start Date:" />
+                                          <DatePicker fx:id="startDatePicker1" />
+                                          <Label text="End Date:" />
+                                          <DatePicker fx:id="endDatePicker1" />
+                                          <Button onAction="#onShowPunctuality" text="Show Patronage" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <TableView fx:id="punctualityTable1">
+                                       <columns>
+                                          <TableColumn fx:id="dateColumn1" minWidth="-Infinity" prefWidth="100.0" text="Date" />
+                                          <TableColumn fx:id="timeInColumn1" minWidth="-Infinity" prefWidth="150.0" text="Company's Name" />
+                                          <TableColumn fx:id="timeOutColumn1" prefWidth="120.0" text="Product Type" />
+                                          <TableColumn fx:id="statusColumn1" text="Quantity" />
+                                          <TableColumn fx:id="statusColumn11" text="Price" />
+                                          <TableColumn fx:id="statusColumn111" text="Amount" />
+                                          <TableColumn fx:id="statusColumn1111" prefWidth="120.0" text="Container Type" />
+                                          <TableColumn fx:id="statusColumn11111" prefWidth="150.0" text="Container Identity" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+        <Tab fx:id="profileTab" closable="false" text="Personal Profile">
+         <content>
+            <VBox alignment="TOP_CENTER" spacing="20.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <VBox styleClass="container-border" stylesheets="@styles/Styles.css">
+                           <children>
+                              <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/Account%20Skin%20Type%201.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <GridPane hgap="10.0" layoutX="200.0" layoutY="58.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="08090983800, 08172634252" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label layoutX="10.0" layoutY="15.0" text="Phone Numbers:" GridPane.rowIndex="2" />
+                              <Label layoutX="10.0" layoutY="15.0" text="Olatinwo, Adewale" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="15.0" text="Othernames:" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="15.0" text="OluwaTobiloba" GridPane.columnIndex="1" />
+                              <Label layoutX="110.0" layoutY="75.0" text="Surnames:" />
+                              <Label layoutX="10.0" layoutY="75.0" text="Current Role:" GridPane.rowIndex="3" />
+                              <Label layoutX="10.0" layoutY="15.0" text="Supervisor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label text="Edit Your Personal Login Details" underline="true">
+                           <font>
+                              <Font name="Garamond" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="20.0" styleClass="c">
+                           <children>
+                              <VBox spacing="10.0" styleClass="container-border">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Label text="Change Your Password?">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <StackPane fx:id="passwordStack">
+                                             <children>
+                                                <ToggleButton fx:id="passwordToggle" mnemonicParsing="false" />
+                                                <Circle fill="WHITE" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </HBox>
+                                    <GridPane alignment="CENTER_LEFT" hgap="5.0" minHeight="-Infinity" vgap="10.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" styleClass="password-hbox-border" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Username">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField prefHeight="30.0" prefWidth="265.0">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                             </children>
+                                          </HBox>
+                                          <Label text="Current Password" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="New Password" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Confirm New Password" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" text="Update Your Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" />
+                                             </graphic>
+                                          </Button>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-border" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField prefHeight="30.0" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-border" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField prefHeight="30.0" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE_SLASH" size="25" wrappingWidth="25.0" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-border" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField prefHeight="30.0" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-hbox-border" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                <PasswordField HBox.hgrow="ALWAYS" />
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-hbox-border" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <PasswordField HBox.hgrow="ALWAYS" />
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-hbox-border" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <PasswordField HBox.hgrow="ALWAYS" />
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="10.0" styleClass="container-border">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Label text="Change Your Username?">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+                                       </children>
+                                    </HBox>
+                                    <GridPane alignment="CENTER_LEFT" hgap="5.0" vgap="10.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" styleClass="password-hbox-border" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Current Username">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" styleClass="password-hbox-border" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="New Username" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Password" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" text="Update Your Username" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" />
+                                             </graphic>
+                                          </Button>
+                                          <HBox visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField prefHeight="30.0" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-border" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField prefHeight="30.0" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE_SLASH" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox maxHeight="30.0" minHeight="-Infinity" prefHeight="30.0" styleClass="password-hbox-border" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <PasswordField HBox.hgrow="ALWAYS" />
+                                                <Button mnemonicParsing="false">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="EYE" size="25" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+        </Tab>
+    </tabs>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</TabPane>

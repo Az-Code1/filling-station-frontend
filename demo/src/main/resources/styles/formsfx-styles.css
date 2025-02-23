@@ -1,0 +1,9 @@
+.form-renderer {
+    -fx-padding: 10;
+    -fx-background-color: #f4f4f4;
+}
+
+.field {
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+}

@@ -1,0 +1,21 @@
+.default-color0.chart-series-line { -fx-stroke: #FF0000; } /* Red line for series 0 */
+.default-color0.chart-legend-item-symbol { -fx-background-color: #FF0000; } /* Red legend for series 0 */
+
+.default-color1.chart-series-line { -fx-stroke: #00FF00; } /* Green line for series 1 */
+.default-color1.chart-legend-item-symbol {
+    -fx-background-color: #00FF00;
+    -fx-shape: "M0,0 L10,0 L5,10 Z"; /* Triangle shape */
+    -fx-scale-shape: false;
+} /* Green legend for series 1 */
+
+.default-color2.chart-series-line { -fx-stroke: #0000FF; } /* Green line for series 1 */
+.default-color2.chart-legend-item-symbol {
+    -fx-background-color: #0000FF;
+    -fx-shape: "M0,0 L10,10 L0,10 Z"; /* Square shape */
+    -fx-scale-shape: false;
+} /* Green legend for series 1 */
+
+
+.data0.chart-pie { -fx-pie-color: #FF0000; } /* Red */
+.data1.chart-pie { -fx-pie-color: #00FF00; } /* Green */
+.data2.chart-pie { -fx-pie-color: #0000FF; } /* Blue */

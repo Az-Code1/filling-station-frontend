@@ -1,0 +1,264 @@
+/* Root styles for the application */
+.root {
+    -fx-primary-color: #003366; /* Primary color */
+    -fx-secondary-color: #3498DB; /* Secondary color */
+    -fx-base: #003366; /* Base color for controls */
+    -fx-background: #f4f4f4; /* Background color */
+    -fx-font-family: "Roboto", sans-serif; /* Default font */
+}
+
+/* Button styles */
+.button {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+}
+
+/* Button hover state */
+.button:hover {
+    -fx-background-color: derive(-fx-primary-color, 20%);
+}
+
+/* Button pressed state */
+.button:pressed {
+    -fx-background-color: derive(-fx-primary-color, -10%);
+}
+
+/* Button disabled state */
+.button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666666;
+}
+
+/* TextField styles */
+.text-field {
+    -fx-prompt-text-fill: #999999;
+    -fx-text-fill: -fx-primary-color;
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-radius: 0;
+}
+
+/* TextField focused state */
+.text-field:focused {
+    -fx-border-color: -fx-secondary-color;
+}
+
+/* TextField hover state */
+.text-field:hover {
+    -fx-border-color: derive(-fx-primary-color, 20%);
+}
+
+/* ComboBox styles */
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* ComboBox hover state */
+.combo-box:hover {
+    -fx-border-color: derive(-fx-primary-color, 20%);
+}
+
+/* ComboBox focused state */
+.combo-box:focused {
+    -fx-border-color: -fx-secondary-color;
+}
+
+/* CheckBox styles */
+.check-box {
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* CheckBox selected state */
+.check-box:selected {
+    -fx-text-fill: -fx-secondary-color;
+}
+
+/* RadioButton styles */
+.radio-button {
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* RadioButton selected state */
+.radio-button:selected {
+    -fx-text-fill: -fx-secondary-color;
+}
+
+/* Slider styles */
+.slider {
+    -fx-thumb-color: -fx-primary-color;
+    -fx-track-color: #cccccc;
+}
+
+/* Slider hover state */
+.slider:hover {
+    -fx-thumb-color: derive(-fx-primary-color, 20%);
+}
+
+/* ProgressBar styles */
+.progress-bar {
+    -fx-accent: -fx-primary-color;
+}
+
+/* ProgressBar indeterminate state */
+.progress-bar:indeterminate {
+    -fx-accent: -fx-secondary-color;
+}
+
+/* ToggleButton styles */
+.toggle-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+/* ToggleButton selected state */
+.toggle-button:selected {
+    -fx-background-color: -fx-secondary-color;
+}
+
+/* ToggleButton hover state */
+.toggle-button:hover {
+    -fx-background-color: derive(-fx-primary-color, 20%);
+}
+
+/* ToggleButton selected hover state */
+.toggle-button:selected:hover {
+    -fx-background-color: derive(-fx-secondary-color, 20%);
+}
+
+/* TabPane styles */
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+/* Tab styles */
+.tab-pane .tab {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+/* Tab hover state */
+.tab-pane .tab:hover {
+    -fx-background-color: derive(-fx-primary-color, 20%);
+}
+
+/* Tab selected state */
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-secondary-color;
+}
+
+/* TableView styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 1px;
+}
+
+/* TableView header styles */
+.table-view .column-header {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+/* TableView row hover state */
+.table-view .table-row-cell:hover {
+    -fx-background-color: derive(-fx-primary-color, 90%);
+}
+
+/* TableView row selected state */
+.table-view .table-row-cell:selected {
+    -fx-background-color: -fx-secondary-color;
+    -fx-text-fill: white;
+}
+/* General Label Styling */
+.label {
+    -fx-text-fill: #003366; /* Primary color */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Label Hover State */
+.label:hover {
+    -fx-text-fill: #3498DB; /* Secondary color */
+}
+
+/* Disabled Label */
+.label:disabled {
+    -fx-text-fill: #7F8C8D; /* Greyed out */
+}
+
+/* Text Styling */
+.text {
+    -fx-fill: #003366; /* Primary color */
+    -fx-font-size: 14px;
+}
+
+/* JFXTextField Styling */
+.jfx-text-field {
+    -fx-text-fill: #003366;
+    -fx-font-size: 14px;
+    -jfx-focus-color: #3498DB;
+    -jfx-unfocus-color: #003366;
+    -fx-prompt-text-fill: derive(#003366, 50%);
+}
+
+/* JFXTextField Hover */
+.jfx-text-field:hover {
+    -fx-border-color: #3498DB;
+}
+
+/* JFXTextField Focused */
+.jfx-text-field:focused {
+    -fx-border-color: #003366;
+    -fx-background-color: derive(#003366, 90%);
+}
+
+/* JFXTextField Disabled */
+.jfx-text-field:disabled {
+    -fx-text-fill: #7F8C8D;
+    -fx-background-color: #E0E0E0;
+}
+
+/* JFXTextArea Styling */
+.jfx-text-area {
+    -fx-text-fill: #003366;
+    -fx-font-size: 14px;
+    -jfx-focus-color: #3498DB;
+    -jfx-unfocus-color: #003366;
+    -fx-prompt-text-fill: derive(#003366, 50%);
+}
+
+/* JFXTextArea Hover */
+.jfx-text-area:hover {
+    -fx-border-color: #3498DB;
+}
+
+/* JFXTextArea Focused */
+.jfx-text-area:focused {
+    -fx-border-color: #003366;
+    -fx-background-color: derive(#003366, 90%);
+}
+
+/* JFXTextArea Disabled */
+.jfx-text-area:disabled {
+    -fx-text-fill: #7F8C8D;
+    -fx-background-color: #E0E0E0;
+}
+
+/* Active State */
+.jfx-text-field:active, .jfx-text-area:active {
+    -fx-border-color: #003366;
+    -fx-text-fill: #3498DB;
+}
+
+/* Visited State (for links and interactive text elements) */
+.text:visited {
+    -fx-fill: #2874A6; /* Darker shade of secondary color */
+}

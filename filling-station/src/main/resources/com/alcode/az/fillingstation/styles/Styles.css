@@ -1,0 +1,670 @@
+/* Apply styles to the container */
+.root{
+    -fx-background-color: #FFFFFF;
+    -fx-font-family: "Roboto";
+}
+/* Base Button Style */
+.button {
+    -fx-font-weight: 500;
+    -fx-background-color: #3498DB; /* Blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-padding: 4px 8px; /* Padding */
+    -fx-cursor: hand; /* Hand cursor on hover */
+}
+
+/* Hover State */
+.button:hover {
+    -fx-background-color: #2980B9; /* Darker blue on hover */
+}
+
+/* Disabled State */
+.button:disabled {
+    -fx-background-color: #A9CCE3; /* Lighter blue for disabled state */
+    -fx-text-fill: #7FB3D5; /* Lighter text for disabled state */
+    -fx-opacity: 0.7; /* Reduced opacity */
+}
+
+/* Focused State */
+.button:focused {
+    -fx-border-color: #1C5980; /* Darker blue border */
+    -fx-border-width: 2px; /* Border thickness */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 5, 0, 0, 0);
+}
+
+/* Pressed State */
+.button:pressed {
+    -fx-background-color: #1C5980; /* Even darker blue when pressed */
+}
+
+/* Active State */
+.button:active {
+    -fx-background-color: #1C5980; /* Darker blue for active state */
+    -fx-text-fill: white; /* White text */
+}
+
+/* Visited State */
+.button:visited {
+    -fx-background-color: #5DADE2; /* Lighter blue for visited state */
+    -fx-text-fill: white; /* White text */
+}
+.container-border {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-border-radius: 10px;
+    -fx-margin-bottom: 10px;
+}
+.password-hbox-border {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+}
+.password-hbox-border .button{
+    -fx-pref-width: 22px;
+    -fx-pref-height: 22px;
+    -fx-padding: 0px;
+}
+.password-hbox-border .text-field,.password-hbox-border .password-field, .password-hbox-border .button {
+    -fx-background-color: transparent;  /* Remove background */
+    -fx-border-width: 0;  /* Remove border */
+    -fx-focus-color: transparent;  /* Remove focus border */
+    -fx-faint-focus-color: transparent;  /* Remove faint focus */
+}
+.transparent-background{
+    -fx-background-color: transparent;
+}
+.borderless-container{
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: transparent;
+}
+.borderless-button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-border-radius: 0px;
+    -fx-text-fill: #003366;
+    -fx-background-color: transparent;
+}
+.image-border {
+    -fx-border-color: #ccc;
+    -fx-border-width: 4px;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-clip: shape;
+}
+/* Primary Color: Navy Blue */
+.primary-color {
+    -fx-background-color: #003366;
+    -fx-text-fill: #FFFFFF;
+}
+.primary-color-text-fill {
+     -fx-fill: #FFFFFF;
+ }
+
+/* Secondary Color: Light Blue */
+.secondary-color {
+    -fx-background-color: #3498DB;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Accent Color: White */
+.accent-color {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2C3E50;
+}
+
+/* Background Color: Light Gray */
+.background-color {
+    -fx-background-color: #F5F5F5;
+}
+
+.label {
+    -fx-text-fill: #003366;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+}
+/* Base style for the toggle button */
+.toggle-button {
+    -fx-background-color: #d1d1d1; /* Default gray background */
+    -fx-background-radius: 15; /* Rounded corners for the toggle background */
+    -fx-pref-width: 50; /* Width of the toggle */
+    -fx-pref-height: 25; /* Height of the toggle */
+    -fx-padding: 0; /* No padding */
+    -fx-border-color: transparent; /* No border */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-alignment: center-left; /* Default thumb position */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0.5, 0, 1);
+}
+
+/* Style when the toggle button is "ON" */
+.toggle-button:selected {
+    -fx-background-color: #0078D7; /* Windows 11 blue color for "ON" */
+    -fx-alignment: center-right; /* Move thumb to the right */
+}
+
+/* Circular thumb inside the toggle */
+.toggle-button.thumb {
+    -fx-shape: "M50,25a25,25 0 1,0 50,0a25,25 0 1,0 -50,0"; /* Circular shape */
+    -fx-background-color: white; /* Thumb color */
+    -fx-background-radius: 50%; /* Fully rounded circle */
+    -fx-pref-width: 20; /* Diameter of the thumb */
+    -fx-pref-height: 20;
+    -fx-translate-x: 2; /* Position slightly left in OFF state */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Thumb position when the toggle is "ON" */
+.toggle-button:selected.thumb {
+    -fx-translate-x: 24; /* Position to the right in ON state */
+}
+
+.raised-bevel {
+    -fx-border-color: linear-gradient(to bottom right, #ccc, #ccc),
+                        linear-gradient(to bottom right, #ccc, #ccc);
+    -fx-border-width: 8px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: #3498DB;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+}
+.lowered-bevel {
+    -fx-border-color: linear-gradient(to bottom right, #666666, #333333), linear-gradient(to bottom right, #2C3E50, #cccccc);
+    -fx-border-width: 2px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: #f0f0f0;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+}
+.raised-soft-bevel {
+    -fx-border-color: linear-gradient(to bottom right, #f0f0f0, #d0d0d0), linear-gradient(to bottom right, #a0a0a0, #808080);
+    -fx-border-width: 2px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 5px;
+    -fx-background-color: #f0f0f0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 2, 2);
+}
+.lowered-soft-bevel {
+    -fx-border-color: linear-gradient(to bottom right, #a0a0a0, #808080), linear-gradient(to bottom right, #f0f0f0, #d0d0d0);
+    -fx-border-width: 2px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 5px;
+    -fx-background-color: #f0f0f0;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 2, 2);
+}
+.line-border {
+    -fx-border-color: #3498DB; /* Blue */
+    -fx-border-width: 1px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 8px;
+}
+.raised-etched {
+    -fx-border-color: linear-gradient(to bottom right, #003366, #F5F5F5), linear-gradient(to bottom right, #003366, #002244);
+    -fx-border-width: 2px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: #f0f0f0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+}
+.lowered-etched {
+    -fx-border-color: linear-gradient(to bottom right, #666666, #333333), linear-gradient(to bottom right, #ffffff, #cccccc);
+    -fx-border-width: 2px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+}
+.titled-border {
+    -fx-border-color: #000000; /* Black */
+    -fx-border-width: 1px;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 10 10 10 10;
+}
+
+.titled-border.label {
+    -fx-background-color: #F5F5F5; /* White */
+    -fx-padding: 0 5 0 5;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.matte-border {
+    -fx-border-color: #ff0000; /* Red */
+    -fx-border-width: 5px 10px 5px 10px; /* Top, Right, Bottom, Left */
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+}
+.empty-border {
+    -fx-padding: 10px 20px 10px 20px; /* Top, Right, Bottom, Left */
+}
+.compound-border {
+    -fx-border-color: #0000ff, #ff0000; /* Blue outer, Red inner */
+    -fx-border-width: 2px, 4px;
+    -fx-border-insets: 0, 5px;
+    -fx-border-radius: 0, 0;
+}
+.custom-dashed-border {
+    -fx-border-color: #000000; /* Black */
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+}
+/* Body Text */
+.body-text {
+    -fx-font-size: 14px;
+}
+
+/* Headings */
+.heading {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Subheadings */
+.subheading {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Input Fields */
+.text-field, .text-area {
+    -fx-font-size: 14px;
+}
+
+/* Navigation Menus */
+.menu-item {
+    -fx-font-size: 14px;
+    -fx-background-color: #003366; /* Blue background */
+    -fx-font-weight: 400;
+    -fx-cursor: hand; /* Hand cursor on hover */
+}
+.menu-item .text{
+    -fx-fill: #003366;
+    -fx-underline: false;
+}
+.menu-item:focused {
+    -fx-background-color: #2bd781;
+}
+.menu-item:focused .text{
+    -fx-fill: #04530d;
+    -fx-font-weight: bold;
+    -fx-underline: true;
+}
+
+/* Tooltips */
+.tooltip {
+    -fx-font-size: 12px;
+}
+
+/* Error Messages */
+.error-message {
+    -fx-font-size: 14px;
+}
+.jfx-button {
+  /*  -fx-background-color: #4CAF50; /* Green background */
+    /*-fx-text-fill: white;*/
+    -fx-font-weight: bold;
+    -fx-padding: 2px 5px;
+    -fx-background-radius: 2px; /* Slightly rounded corners */
+    -fx-border-radius: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Shadow effect */
+    -fx-cursor: hand; /* Hand cursor on hover */
+}
+
+/* Hover effect */
+.jfx-button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 2); /* Larger shadow on hover */
+}
+
+/* Pressed effect */
+.jfx-button:pressed {
+    -fx-background-color: #3e8e41; /* Even darker green when pressed */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1); /* Smaller shadow when pressed */
+}
+
+/* Disabled state */
+.jfx-button:disabled {
+    -fx-background-color: #BDBDBD; /* Gray background when disabled */
+    -fx-text-fill: #757575; /* Gray text when disabled */
+    -fx-effect: none; /* No shadow when disabled */
+}
+
+/* Focused state */
+.jfx-button:focused {
+    -fx-background-color: #4CAF50; /* Green background when focused */
+    -fx-border-color: #2196F3; /* Blue border when focused */
+    -fx-border-width: 2px;
+    -fx-border-radius: 2px;
+}
+.admin-button{
+    -fx-pref-width: 200px; /* Preferred width */
+    -fx-pref-height: 70px;
+    -fx-font-weight: 900;
+    -fx-background-color: #003366; /* Blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-background-radius: 0px; /* Rounded corners */
+    -fx-border-radius: 0px; /* Rounded corners */
+ }
+
+ /* Hover State */
+.admin-button:hover {
+    -fx-background-color: #2980B9; /* Darker blue on hover */
+}
+
+/* Disabled State */
+.admin-button:disabled {
+   -fx-background-color: #A9CCE3; /* Lighter blue for disabled state */
+   -fx-text-fill: #7FB3D5; /* Lighter text for disabled state */
+   -fx-opacity: 0.7; /* Reduced opacity */
+}
+
+ /* Focused State */
+.admin-button:focused {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #003366;
+    -fx-border-color: transparent; /* Darker blue border */
+    -fx-border-width: 0px; /* Border thickness */
+    -fx-border-radius: 0px; /* Rounded corners */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 0); /* Subtle shadow */
+}
+/* Pressed State */
+.admin-button:pressed {
+    -fx-background-color: #1C5980; /* Even darker blue when pressed */
+}
+
+ /* Active State */
+.admin-button:active {
+    -fx-background-color: #1C5980; /* Darker blue for active state */
+    -fx-text-fill: white; /* White text */
+}
+/* Visited State */
+.admin-button:visited {
+    -fx-background-color: #5FFFFF; /* Lighter blue for visited state */
+    -fx-text-fill: white; /* White text */
+}
+.table-view .cell{
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-padding: 5px; /* Padding */
+    -fx-alignment: CENTER;
+}
+/* Customize the table header */
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: #3498DB;
+    -fx-text-fill: white;          /* White text */
+    -fx-font-size: 14px;           /* Font size */
+    -fx-font-weight: bold;         /* Bold text */
+    -fx-alignment: CENTER;         /* Center-align text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+    -fx-border-color: linear-gradient(to bottom right, #ccc, #ccc),linear-gradient(to bottom right, #ccc, #ccc);
+}
+
+/* Customize the column headers */
+.table-view .column-header .label {
+    -fx-text-fill: white;          /* White text */
+    -fx-font-size: 14px;           /* Font size */
+    -fx-font-weight: bold;         /* Bold text */
+}
+
+/* Table Data */
+.table-cell {
+    -fx-font-size: 12px;
+}
+
+/* Customize the table header background */
+.table-view .column-header-background {
+    -fx-background-color: #F5F5F5; /* Green background */
+}
+/* Customize the ComboBox */
+.combo-box {
+    -fx-background-color: #003366; /* Dark blue background */
+    -fx-text-fill: white;          /* White text */
+    -fx-font-size: 14px;           /* Font size */
+    -fx-font-weight: bold;         /* Bold text */
+    -fx-border-radius: 5px;        /* Rounded corners */
+    -fx-background-radius: 5px;    /* Rounded corners */
+}
+/* Customize the ComboBox popup list */
+.combo-box .list-view {
+    -fx-background-color: #003366; /* Dark blue background for the popup */
+    -fx-text-fill: white;          /* White text in the popup */
+}
+/* Customize the ComboBox selected item */
+.combo-box .list-cell:selected {
+    -fx-background-color: #002244; /* Slightly darker blue for the selected item */
+    -fx-text-fill: white;          /* White text for the selected item */
+}
+/* Customize the ComboBox hover effect */
+.combo-box .list-cell:hover {
+    -fx-background-color: #004488; /* Lighter blue for hover effect */
+    -fx-text-fill: white;          /* White text on hover */
+}
+/* Customize the ComboBox arrow button */
+.combo-box .arrow-button {
+    -fx-background-color: #3498DB; /* Light blue for the arrow button */
+}
+/* Customize the ComboBox selected item */
+.combo-box .list-cell:selected {
+    -fx-background-color: #3498DB; /* Light blue for the selected item */
+    -fx-text-fill: white;          /* White text for the selected item */
+}
+/* Customize the ComboBox focus effect */
+.combo-box:focused {
+    -fx-border-color: #3498DB;     /* Light blue border when focused */
+    -fx-border-width: 2px;         /* Border width */
+}
+.choice-box {
+    -fx-background-color: #3498DB; /* Dark blue background */
+    -fx-text-fill: white;          /* White text */
+    -fx-font-size: 14px;           /* Font size */
+    -fx-font-weight: bold;         /* Bold text */
+    -fx-border-radius: 5px;        /* Rounded corners */
+    -fx-background-radius: 5px;    /* Rounded corners */
+}
+/* Customize the choice popup list */
+.choice-box .list-view {
+    -fx-background-color: #003366; /* Dark blue background for the popup */
+    -fx-text-fill: white;          /* White text in the popup */
+}
+/* Customize the choiceBox selected item */
+.choice-box .list-cell:selected {
+    -fx-background-color: #002244; /* Slightly darker blue for the selected item */
+    -fx-text-fill: white;          /* White text for the selected item */
+}
+/* Customize the ComboBox hover effect */
+.choice-box .list-cell:hover {
+    -fx-background-color: #004488; /* Lighter blue for hover effect */
+    -fx-text-fill: white;          /* White text on hover */
+}
+/* Customize the ComboBox arrow button */
+.choice-box .arrow-button {
+    -fx-background-color: #3498DB; /* Light blue for the arrow button */
+}
+/* Customize the ComboBox selected item */
+.choice-box .list-cell:selected {
+    -fx-background-color: #3498DB; /* Light blue for the selected item */
+    -fx-text-fill: white;          /* White text for the selected item */
+}
+/* Customize the ComboBox focus effect */
+.choice-box:focused {
+    -fx-border-color: #3498DB;     /* Light blue border when focused */
+    -fx-border-width: 2px;         /* Border width */
+}
+/* Primary Color: #003366 */
+/* Secondary Color: #3498DB */
+{
+    -fx-primary-color: #003366;
+    -fx-secondary-color: #3498DB;
+}
+/* Style for the TabPane */
+.tab-pane {
+    -fx-tab-min-width: 100px;
+    -fx-tab-max-width: 200px;
+    -fx-tab-min-height: 30px;
+    -fx-tab-max-height: 30px;
+    -fx-padding: 2px;
+    -fx-border-color: white;/*#3498DB; /* Secondary color for the border */
+    -fx-border-width: 12px;
+}
+
+/* Style for the tab headers */
+.tab-pane .tab {
+    -fx-background-color: #3498DB; /* Secondary color for inactive tabs */
+    -fx-border-width: 0px;
+    -fx-border-radius: 0px;
+    -fx-padding: 10px 20px; /* Padding inside the tab */
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-background-insets: 0; /* Ensures no extra spacing around tabs */
+    -fx-background-radius: 0; /* Removes rounded corners */
+}
+
+/* Style for the text inside the tab */
+.tab-pane .tab .tab-label {
+    -fx-text-fill: white; /* Text color for inactive tabs */
+    -fx-border-color: #F5F5F5; /* Primary color for the border */
+    -fx-border-width: 0px;
+    -fx-padding: 0;
+    -fx-background-insets: 0; /* Ensures no extra spacing around tabs */
+    -fx-background-radius: 0;
+}
+.tab-pane .tab .tab-close-button {
+    -fx-background-color: #F5F5F5; /* Transparent background */
+    -fx-shape: null; /* Custom "X" shape */
+    -fx-scale-x: 0.8; /* Scale down the size */
+    -fx-scale-y: 0.8;
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+    -fx-border-radius: 0;
+    -fx-border-color: #FFFFFF;
+    -fx-padding: 0;
+}
+/* Style for the selected tab */
+.tab-pane .tab:selected {
+    -fx-background-color: F5F5F5; /* Primary color for the selected tab */
+    -fx-font-weight: bold;
+}
+
+/* Style for the text inside the selected tab */
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #003366; /* Text color for the selected tab */
+}
+
+.tab-pane .tab:selected .tab {
+    -fx-border-width: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+  /*  -fx-background-insets: 0; /* Ensures no extra spacing around tabs */
+   /* -fx-border-width: 0; */
+}
+/* Style for the tab hover effect */
+.tab-pane .tab:hover {
+    -fx-background-color: #1C5980; /* Darker shade of secondary color for hover */
+}
+
+/* Style for the text inside the hovered tab */
+.tab-pane .tab:hover .tab-label {
+    -fx-text-fill: white; /* Text color for the hovered tab */
+}
+
+/* Style for the tab content area */
+.tab-pane .tab-content-area {
+    -fx-background-color: white; /* Background color of the content area */
+    -fx-border-color: white; /* Primary color for the border */
+    -fx-border-width: 0px;
+}
+.tab-pane .tab-header-area {
+    -fx-background-color: #F5F5F5; /* Change to your desired color */
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: #3498DB;
+    -fx-background-insets: 0;
+    -fx-border-width: 0px;
+}
+
+/* Style for the tab header background */
+.tab-pane .headers-region {
+    -fx-border-width: 0px;
+    -fx-padding: 0;
+    -fx-background-color: #F5F5F5; /* Primary color for the tab header area */
+}
+
+/* Style for the tab close button */
+.tab-pane .tab .tab-close-button {
+    -fx-background-color: transparent;
+    -fx-shape: "M 0 0 L 10 10 M 10 0 L 0 10"; /* Custom close button shape */
+    -fx-text-fill: white; /* Text color for the close button */
+}
+/* Define a class for primary color icons */
+.icon-primary {
+    -fx-text-fill: #003366; /* Use -fx-text-fill for text/icon color */
+}
+
+/* Define a class for secondary color icons */
+.icon-secondary {
+    -fx-text-fill: #3498DB;
+}
+
+/* Define a class for white icons */
+.icon-white {
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Define a class for disabled icons */
+.icon-disabled {
+    -fx-text-fill: #CCCCCC;
+}
+.admin-button .font-icon{
+    -fx-icon-size: 30px;
+    -fx-fill: white;
+ }
+/* styles.css */
+.admin-button:focused .font-icon{
+    -fx-fill: #003366;
+}
+.admin-button:hover .font-icon{
+    -fx-fill: #003366;
+    -fx-stroke: green; /* Darker blue on hover */
+}
+/* Style the MenuButton */
+.menu-button {
+    -fx-background-color: transparent;  /* Blue background */
+    -fx-text-fill: white; /* Text color */
+    -fx-font-size: 14px;
+}
+.menu-button .text{
+    -fx-fill: white;  /* Text color */
+}
+
+.menu-button .text:hover{
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+/* Style the FontAwesomeIcon inside the MenuButton */
+.menu-button .font-icon {
+    -fx-fill: white;  /* Icon color */
+    -fx-font-size: 16px;
+}
+
+/* Change icon color when MenuButton is hovered */
+.menu-button:hover .font-icon {
+    -fx-fill: yellow;
+}
+@font-face {
+    font-family: "Digital7";
+    src: url("com/alcode/az/fillingstation/fonts/digital-7.ttf");
+}
+#time-label{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Digital7";
+    -fx-font-size: 18px;
+    -fx-font-weight: 900;
+}

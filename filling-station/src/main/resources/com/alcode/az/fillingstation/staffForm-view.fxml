@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane minHeight="1000.0" minWidth="1500.0" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <tabs>
+      <Tab closable="false" text="Add New Staff">
+         <content>
+            <AnchorPane prefHeight="1000.0" prefWidth="1100.0" style="-fx-border-color: null;">
+               <children>
+                  <VBox layoutX="20.0" layoutY="9.0" spacing="10.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Staff Personal Information">
+                                 <font>
+                                    <Font name="Garamond Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Surname:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter staff surname here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="First Name:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff First Name Here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Othername:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff Othername Here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Gender">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                             <children>
+                                                <RadioButton mnemonicParsing="false" text="Male">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="genderGroup" />
+                                                   </toggleGroup>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </RadioButton>
+                                                <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$genderGroup">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </RadioButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Date of Birth:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker editable="false">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </DatePicker>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="NIN:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox>
+                                             <children>
+                                                <TextField prefWidth="120.0" promptText="Enter NIN">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@icons/validate.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Button mnemonicParsing="false" text="Validate">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="Staff Contact Details" underline="true">
+                                 <font>
+                                    <Font name="Garamond Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Phone number:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff Phone Number">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Second Phone:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter staff Alternative Phone Number">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Street Address:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea prefHeight="50.0" prefWidth="220.0" wrapText="true" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="City">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefWidth="120.0" promptText="Enter City Here">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="State">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox prefWidth="120.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" spacing="5.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: orange;" text="C L E A R    F I E L D S">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/clear%20icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: green;" styleClass="raised-soft-bevel" text="S A V E">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/Save%20white.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="251.0">
+                     <children>
+                        <Label text="Staff Guarantor Information">
+                           <font>
+                              <Font name="Garamond Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                           <children>
+                              <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Surname:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Staff Guarantor surname here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="First Name:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Guarantor First Name here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Othername:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter staff othername here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="80.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Occupation:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Guarantor Occupation">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Gender:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <RadioButton mnemonicParsing="false" text="Male">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="genderGroup1" />
+                                             </toggleGroup>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$genderGroup1">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Date of Birth:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker editable="false">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </DatePicker>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="NIN:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <TextField prefWidth="120.0" promptText="Enter NIN">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@icons/icons8-approval-50.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" text="Validate">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Address:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea prefHeight="50.0" prefWidth="220.0" wrapText="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="483.0" layoutY="27.0">
+                     <children>
+                        <VBox styleClass="container-border" stylesheets="@styles/Styles.css">
+                           <children>
+                              <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/Account%20Skin%20Type%201.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Take Photo">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="CAMERA" glyphStyle="CAMERA" size="20" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Add New Staff">
+         <content>
+            <AnchorPane minHeight="1000.0" minWidth="1200.0" style="-fx-border-color: null;">
+               <children>
+                  <VBox layoutX="20.0" layoutY="9.0" spacing="10.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Staff Personal Information">
+                                 <font>
+                                    <Font name="Garamond Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Surname:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter staff surname here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="First Name:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff First Name Here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Othername:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff Othername Here">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Gender">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                             <children>
+                                                <RadioButton mnemonicParsing="false" text="Male">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="genderGroup1" />
+                                                   </toggleGroup>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </RadioButton>
+                                                <RadioButton mnemonicParsing="false" text="Female">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="genderGroup11" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Date of Birth:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker editable="false">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </DatePicker>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="NIN:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox>
+                                             <children>
+                                                <TextField prefWidth="120.0" promptText="Enter NIN">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@icons/validate.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Button mnemonicParsing="false" text="Validate">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="Staff Contact Details" underline="true">
+                                 <font>
+                                    <Font name="Garamond Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Phone number:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter Staff Phone Number">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Second Phone:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefWidth="220.0" promptText="Enter staff Alternative Phone Number">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <Label prefWidth="100.0" text="Street Address:">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea prefHeight="50.0" prefWidth="220.0" wrapText="true" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="City">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefWidth="120.0" promptText="Enter City Here">
+                                                   <font>
+                                                      <Font name="Garamond" size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="State">
+                                                   <font>
+                                                      <Font name="Garamond" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox prefWidth="120.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" spacing="5.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: orange;" text="C L E A R    F I E L D S">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/clear%20icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: green;" styleClass="raised-soft-bevel" text="S A V E">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/Save%20white.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="251.0">
+                     <children>
+                        <Label text="Staff Guarantor Information">
+                           <font>
+                              <Font name="Garamond Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="350.0" spacing="5.0" styleClass="container-border" stylesheets="@styles/Styles.css">
+                           <children>
+                              <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Surname:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Staff Guarantor surname here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="16.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="First Name:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Guarantor First Name here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="48.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Othername:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter staff othername here">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="16.0" layoutY="80.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Occupation:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefWidth="220.0" promptText="Enter Guarantor Occupation">
+                                       <font>
+                                          <Font name="Garamond" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Gender:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" spacing="20.0" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                       <children>
+                                          <RadioButton mnemonicParsing="false" text="Male" toggleGroup="$genderGroup11">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$genderGroup11">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Date of Birth:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker editable="false">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </DatePicker>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="NIN:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <TextField prefWidth="120.0" promptText="Enter NIN">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@icons/icons8-approval-50.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" text="Validate">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER" styleClass="transparent-background" stylesheets="@styles/Styles.css">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Address:">
+                                       <font>
+                                          <Font name="Garamond" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea prefHeight="50.0" prefWidth="220.0" wrapText="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="483.0" layoutY="27.0" spacing="5.0">
+                     <children>
+                        <VBox styleClass="image-border" stylesheets="@styles/Styles.css">
+                           <children>
+                              <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/Account%20Skin%20Type%201.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Take Photo">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="CAMERA" glyphStyle="CAMERA" size="20" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

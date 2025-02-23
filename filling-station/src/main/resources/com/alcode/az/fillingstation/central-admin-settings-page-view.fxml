@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20.0" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alcode.az.fillingstation.controller.CentralAdminSettingsPageController">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <TitledPane text="Personal">
+         <content>
+            <VBox spacing="20.0">
+               <children>
+                  <Label text="Edit Personal Login Details" underline="true">
+                     <font>
+                        <Font name="Garamond" size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <HBox spacing="20.0">
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Label text="Change Password?">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <StackPane fx:id="passwordStack">
+                                             <children>
+                                                <ToggleButton fx:id="passwordToggle" mnemonicParsing="false" text="Toggle" />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </HBox>
+                                    <GridPane alignment="CENTER_LEFT" hgap="5.0" minHeight="-Infinity" vgap="10.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Username">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Password" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="New Password" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Confirm Password" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" text="Update Changes" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Label text="Change Username?">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+                                       </children>
+                                    </HBox>
+                                    <GridPane alignment="CENTER_LEFT" hgap="5.0" vgap="10.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Username">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField prefHeight="30.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="New Username" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Password" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Garamond" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" text="Update Changes" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TitledPane>
+      <TitledPane text="Login Permission Settings">
+         <content>
+            <VBox spacing="20.0">
+               <children>
+                  <Label text="Staff Permission Level" underline="true">
+                     <font>
+                        <Font name="Garamond" size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Pane minHeight="250.0" prefWidth="350.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/Account%20Skin%20Type%204.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox layoutX="181.0" layoutY="29.0" spacing="5.0">
+                                 <children>
+                                    <GridPane hgap="10.0" vgap="8.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="CEO(Level 1)">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <ToggleButton mnemonicParsing="false" text="togg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <ToggleButton layoutX="87.0" layoutY="10.0" mnemonicParsing="false" text="togg" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label layoutX="10.0" layoutY="14.0" text="GM(Level 2)" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="10.0" layoutY="14.0" text="BM(Level 3)" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="10.0" layoutY="14.0" text="Super(Level 4)" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="Garamond" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <ToggleButton layoutX="87.0" layoutY="60.0" mnemonicParsing="false" text="togg" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" GridPane.columnIndex="1">
+                                             <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@icons/icons8-password-50.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></ToggleButton>
+                                       </children>
+                                    </GridPane>
+                                    <Button mnemonicParsing="false" styleClass="lowered-soft-bevel" stylesheets="@styles/Styles.css" text="Update Changes" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="13.0" layoutY="169.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Oluwapelumi Olatoberu" />
+                                    <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pnone numbers" />
+                                    <Text layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text here Text here Text " />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TitledPane>
+   </children>
+</VBox>
